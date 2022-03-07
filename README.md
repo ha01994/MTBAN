@@ -1,8 +1,6 @@
 # MTBAN
-Paper: An enhanced variant effect predictor based on a deep generative model and the Born-Again Networks
+Server source code and the test dataset for the paper: An enhanced variant effect predictor based on a deep generative model and the Born-Again Networks
 
-
-The code will be uploaded soon.
 
 
 Prerequisites:
