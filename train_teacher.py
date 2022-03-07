@@ -60,7 +60,10 @@ if True:
         print(np.sum([np.product([xi.value for xi in x.get_shape()]) for x in tf.trainable_variables()]))
 
 
-    with tf.Session(graph=graph) as sess:
+    config = tf.ConfigProto()
+    config.gpu_options.allow_growth = True
+
+    with tf.Session(graph=graph, config=config) as sess:
         print('starting training (teacher)...')
         sess.run(init)
         stored_exception=None

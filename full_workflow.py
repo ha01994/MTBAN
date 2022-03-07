@@ -2,6 +2,7 @@ import sys, os, csv, time, glob, re
 from utils import *
 from Bio import SeqIO
 import requests 
+import random
 
 jobId = sys.argv[1]
 mut_file = sys.argv[2]
@@ -155,9 +156,13 @@ if found_precomputed == False:
         cpu_percent = psutil.cpu_percent()
         available_memory = psutil.virtual_memory().available * 100 / psutil.virtual_memory().total
         
+        rr = random.randrange(0, 120, 15) 
+        print('wait %d seconds to avoid multiple jobs crashing simultaneously' %rr)
+        time.sleep(rr)
+
         if cpu_percent > 80 or available_memory < 20:
             print("waiting for enough CPU/memory...")
-            time.sleep(3000)
+            time.sleep(180)
             
         else:    
             startpos = max(min(mut_positions) - 25, 1)
@@ -197,15 +202,18 @@ if found_precomputed == False:
                 print('errorment.txt file exists')
                 exit()
 
-
+            
+            rr = random.randrange(0, 120, 15)
+            print('wait %d seconds to avoid multiple jobs crashing simultaneously' %rr)
+            time.sleep(rr)
 
             training_done=False
             while training_done == False:
                 memory = gpu_memory_map()
-                print('memory', memory)
-                if int(memory[0]) > 2000:
+                print('################ GPU MEMORY MAP:', memory, '################')
+                if int(memory[0]) > 100:
                     print("waiting for available GPU...")
-                    time.sleep(2000)
+                    time.sleep(180)
                 else:
                     if option == "option1":
                         print("starting train_option1.py")
