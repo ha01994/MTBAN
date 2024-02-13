@@ -9,10 +9,19 @@ import random
 ##############################################################
 jobId = '1'
 accession = 'P40692'
-option = 'option1'
-#option = 'option2'
-mut_file = "_job%s/%s_mutations.txt"%(jobId,jobId)
+#option = 'option1'
+option = 'option2'
+
+os.system('rm -rf _job%s'%jobId)
+os.system('mkdir _job%s'%jobId)
+
+os.system('cp P40692_492-756.a2m _job1/1.a2m')
+os.system('cp P40692_mutations.txt _job1/1_mutations.txt')
+
 ##############################################################
+
+mut_file = "_job%s/%s_mutations.txt"%(jobId,jobId)
+
 
 
 with open(mut_file) as f:
@@ -52,8 +61,6 @@ if len(not_correspond) > 0:
 
 #########################################################################################################
 
-# uncomment this if you need to build MSA (need to install EVcouplings)
-'''
 startpos = max(min(mut_positions) - 25, 1)
 endpos = min(max(mut_positions) + 25, sequence_length)
 if endpos - startpos < 20: 
@@ -63,8 +70,9 @@ elif endpos - startpos > 300:
 print('startpos', startpos)
 print('endpos', endpos)
 
-os.system("python src/build_msa.py %s %s %s %s %s"%(jobId, mut_file, startpos, endpos, accession))
-'''
+# uncomment this if you need to build MSA (need to install EVcouplings)
+#os.system("python src/build_msa.py %s %s %s %s %s"%(jobId, mut_file, startpos, endpos, accession))
+
 #########################################################################################################
 
 # uncomment this if you need to preprocess

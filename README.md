@@ -3,6 +3,7 @@ The current repository provides the source code and dataset for the paper:
 
 Kim HY, Jeon W, Kim D. An enhanced variant effect predictor based on a deep generative model and the Born-Again Networks. Scientific reports. 2021 Sep 27;11(1):1-7.
 
+
 ## Setting up environment
 First create a conda environment, and activate the environment:
 ```
@@ -18,6 +19,8 @@ Then install the package requirements using pip:
 ```
 pip install -r requirements.txt
 ```
+This code is tested on python==3.6.5 and tensorflow-gpu==1.10.0. 
+
 
 ## Available Models
 The source code offers two options:
@@ -38,10 +41,8 @@ However, this model takes a longer time to train.
 Kim HY, Jeon W, Kim D. An enhanced variant effect predictor based on a deep generative model and the Born-Again Networks. Scientific reports. 2021 Sep 27;11(1):1-7.
 
 
-## How to train and test models
-Run ```python full_workflow.py``` to train and test the above models.
-
-Sample data is provided in ```_job1/``` folder. 
+## Train model on sample data
+Run ```python full_workflow.py``` to train the above models using the sample data (jobId 1, Uniprot accession P40692). For this example, MSA file (P40692_492-756.a2m) and mutation file (P40692_mutations.txt) are provided. If you want to test your own protein, you will need to prepare your own MSA or build MSA using the ```src/build_msa.py``` file. 
 
 The ```full_workflow.py``` file will run the following python files in the ```src``` folder:
 
