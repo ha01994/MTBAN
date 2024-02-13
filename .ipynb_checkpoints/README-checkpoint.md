@@ -3,7 +3,7 @@ The current repository provides the source code and dataset for the paper:
 
 Kim HY, Jeon W, Kim D. An enhanced variant effect predictor based on a deep generative model and the Born-Again Networks. Scientific reports. 2021 Sep 27;11(1):1-7.
 
-&nbsp;&nbsp;
+&nbsp;
 
 
 ## Setting up environment
@@ -23,7 +23,7 @@ pip install -r requirements.txt
 ```
 This code is tested on python==3.6.5 and tensorflow-gpu==1.10.0. 
 
-&nbsp;&nbsp;
+&nbsp;
 
 
 ## Available Models
@@ -44,7 +44,7 @@ However, this model takes a longer time to train.
 
 Kim HY, Jeon W, Kim D. An enhanced variant effect predictor based on a deep generative model and the Born-Again Networks. Scientific reports. 2021 Sep 27;11(1):1-7.
 
-&nbsp;&nbsp;
+&nbsp;
 
 
 ## Train model on sample dataset
@@ -62,7 +62,7 @@ The ```full_workflow.py``` file will sequentially run the following python files
 
 - ```train_option1.py``` (for option 1); ```train_teacher.py``` and ```train_student.py``` (for option 2)
 
-&nbsp;&nbsp;
+&nbsp;
 
 
 
@@ -83,7 +83,7 @@ The interpretation for each of them are as follows:
 
 4. The 'predicted label' column is the label predicted by the model, either "deleterious" or "benign". The threshold was determined from the z-scores of the variants in the Humsavar database.
 
-&nbsp;&nbsp;
+&nbsp;
 
 
 
@@ -91,4 +91,4 @@ The interpretation for each of them are as follows:
 If you have questions, please contact ha01994@kaist.ac.kr.
 
 
-&nbsp;&nbsp;
+&nbsp;
