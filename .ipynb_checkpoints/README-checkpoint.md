@@ -54,11 +54,9 @@ You can choose option 1 or option 2 when running ```python full_workflow.py```.
 
 The ```full_workflow.py``` file will sequentially run the following python files located in the ```src``` folder:
 
-- ```build_msa.py```
-
-- ```preprocess.py```
-
-- ```train_option1.py``` (for option 1); ```train_teacher.py``` and ```train_student.py``` (for option 2)
+1. ```build_msa.py``` (optional)
+2. ```preprocess.py```
+3. ```train_option1.py``` (for option 1); ```train_teacher.py``` and ```train_student.py``` (for option 2)
 
 If you want to test your own protein, you will need to either
 1. prepare your own MSA (you need to make sure it covers the amino acid positions of the mutations of interest)
