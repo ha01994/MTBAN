@@ -5,6 +5,7 @@ Kim HY, Jeon W, Kim D. An enhanced variant effect predictor based on a deep gene
 
 &nbsp;&nbsp;
 
+
 ## Setting up environment
 First create a conda environment, and activate the environment:
 ```
@@ -21,6 +22,7 @@ Then install the package requirements using pip:
 pip install -r requirements.txt
 ```
 This code is tested on python==3.6.5 and tensorflow-gpu==1.10.0. 
+
 &nbsp;&nbsp;
 
 
@@ -41,6 +43,7 @@ The accuracy of the model is generally higher than the mutationTCN model.
 However, this model takes a longer time to train.
 
 Kim HY, Jeon W, Kim D. An enhanced variant effect predictor based on a deep generative model and the Born-Again Networks. Scientific reports. 2021 Sep 27;11(1):1-7.
+
 &nbsp;&nbsp;
 
 
@@ -58,6 +61,7 @@ The ```full_workflow.py``` file will sequentially run the following python files
 - ```preprocess.py```
 
 - ```train_option1.py``` (for option 1); ```train_teacher.py``` and ```train_student.py``` (for option 2)
+
 &nbsp;&nbsp;
 
 
