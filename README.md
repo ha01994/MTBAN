@@ -6,8 +6,8 @@ Kim HY, Jeon W, Kim D. An enhanced variant effect predictor based on a deep gene
 ## Setting up environment for running MTBAN
 First create a conda environment, and activate the environment:
 ```
-conda create -n tspred python=3.6.5
-conda activate tspred
+conda create -n mtban python=3.6.5
+conda activate mtban
 ```
 Clone this repository:
 ```
