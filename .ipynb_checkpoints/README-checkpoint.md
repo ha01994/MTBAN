@@ -1,5 +1,5 @@
 # MTBAN
-The current repository provides the source code and dataset for the paper:
+The current repository provides the source code and dataset for the paper: 
 
 Kim HY, Jeon W, Kim D. An enhanced variant effect predictor based on a deep generative model and the Born-Again Networks. Scientific reports. 2021 Sep 27;11(1):1-7.
 
@@ -26,7 +26,7 @@ This code is tested on python==3.6.5 and tensorflow-gpu==1.10.0.
 &nbsp;
 
 
-## Available Models
+## Available models
 The source code offers two options:
 
 **Option 1. mutationTCN**
@@ -34,7 +34,7 @@ The source code offers two options:
 This option predicts using the basic mutationTCN model, which is a deep generative model based on the Temporal Convolutional Network architecture.
 This model takes a relatively short training time, yet gives results with reasonably high accuracy.
 
-Kim HY, Kim D. Prediction of mutation effects using a deep temporal convolutional network. Bioinformatics. 2020 Apr 1;36(7):2047-52.
+[Reference] Kim HY, Kim D. Prediction of mutation effects using a deep temporal convolutional network. Bioinformatics. 2020 Apr 1;36(7):2047-52.
 
 **Option 2. MTBAN**
 
@@ -42,7 +42,7 @@ This model is the optimization of the mutationTCN model with Born-Again Neural N
 The accuracy of the model is generally higher than the mutationTCN model.
 However, this model takes a longer time to train.
 
-Kim HY, Jeon W, Kim D. An enhanced variant effect predictor based on a deep generative model and the Born-Again Networks. Scientific reports. 2021 Sep 27;11(1):1-7.
+[Reference] Kim HY, Jeon W, Kim D. An enhanced variant effect predictor based on a deep generative model and the Born-Again Networks. Scientific reports. 2021 Sep 27;11(1):1-7.
 
 &nbsp;
 
