@@ -15,7 +15,7 @@ def next_batch_2(x, y, z, batch_size):
 
 
 def return_k_n(seq_len):
-    with open('k_n.csv', 'r') as f:
+    with open('/home/ha01994/MTBAN/src/k_n.csv', 'r') as f:
         r = csv.reader(f)
         next(r)
         for line in r:

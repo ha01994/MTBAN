@@ -2,7 +2,6 @@ import warnings
 warnings.simplefilter(action='ignore', category=FutureWarning)
 import random, time, sys, os, csv
 from utils import *
-os.environ["CUDA_VISIBLE_DEVICES"] = str(pick_gpu_lowest_memory())
 import tensorflow as tf
 import numpy as np
 from model import TemporalConvNet
@@ -10,13 +9,10 @@ from model import TemporalConvNet
 
 jobId = sys.argv[1]
 accession = sys.argv[2]
-startpos = sys.argv[3]
-endpos = sys.argv[4]
 
 
 
-if True:
-    
+if True:    
     data_aa = np.load('_job%s/data_aa.npy'%jobId) #(num_seqs, seq_len) 
     wt_seq = np.reshape(data_aa[0,:], (1,-1))
     weights = np.load('_job%s/weights.npy'%jobId)    
@@ -30,7 +26,7 @@ if True:
     keep_prob = 0.7
     batch_size = 128
     starter_learning_rate = 0.001
-    training_steps = 100000
+    training_steps = 100000    
     nhid = 128
     k, n = return_k_n(seq_len)
 
@@ -94,8 +90,8 @@ if True:
                 predictions = binary_prediction_option1(normalized_values)
                 
                 lz = list(zip(all_possible_mutations, all_possible_scores, normalized_values, 
-                        probabilities, predictions))
-                
+                              probabilities, predictions))
+
                 
                 mm = []; ss = []; zz = []; pp = []; pr = []
                 for k in mutations:
@@ -105,7 +101,7 @@ if True:
                             ss.append(l[1])
                             zz.append(l[2])
                             pp.append(l[3])
-                            pr.append(l[4])                
+                            pr.append(l[4])
 
                             
                 with open('_job%s/predictions_jobId%s.csv'%(jobId,jobId), 'a') as f:

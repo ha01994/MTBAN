@@ -18,7 +18,7 @@ mut_file = "_job%s/%s_mutations.txt"%(jobId, jobId)
 keys = list("ABCDEFGHIKLMNPQRSTVWXYZ-")
 values = list(range(24))
 dic = dict(zip(keys,values))
-#print(dic)
+
 
 fasta_seqs = SeqIO.parse(open(input_file),'fasta')
 names,seqs=[],[]
@@ -37,7 +37,7 @@ print(start_pos)
 print(end_pos)
 
 pos_dic = list(zip(list(seqs[0]), list(range(start_pos, end_pos))))
-#print('pos_dic', pos_dic)
+
 
 pruned_seqs=[]
 for seq in seqs:
@@ -52,7 +52,6 @@ print('pruned sequence length: %d'%len(pruned_seqs[0]))
 
 
 anchor_seq = pruned_seqs[0]
-#print('anchor_seq: %s'%anchor_seq)
 
 
 translated_seqs = []
@@ -72,15 +71,12 @@ pruned_positions = []
 for pair in pos_dic:
     if pair[0]!= "." and not (pair[0].islower()):
         pruned_positions.append(pair[1])
-#print('pruned_positions', pruned_positions)
 
 
 #pruned_positions는 원래 sequence에서의 position
 #list(range(len(pruned_seqs[0])))는 pruning 후의 position (consecutive)
 new_dict = list(zip(list(anchor_seq), pruned_positions, list(range(len(pruned_seqs[0])))))
 pos_pair_dict = dict(zip(pruned_positions, list(range(len(pruned_seqs[0])))))
-#print('new_dict', new_dict)
-#print('pos_pair_dict', pos_pair_dict)
 
 
 
@@ -99,7 +95,6 @@ for element in new_dict: #('K', 123, 0)
         anchor[element[2]] = aa
         mut_seq = ''.join(anchor)
         mutated_seqs.append(mut_seq)
-#print('number of all possible mutations', len(mutations))
 
 mutations = np.array(mutations)
 
@@ -154,7 +149,7 @@ for m in mut_list:
     else:
         mut = m.strip()
         mutations.append(mut)
-        
+print(mutations)
 
 mut_seqs = []
 new_mutations = []
@@ -168,10 +163,12 @@ for mutation in mutations: #G126A
         new_mutations.append(mutation)
     else:
         pass
-
+print(new_mutations)
 
 new_mutations = np.array(new_mutations)
 np.save('_job%s/mutations'%jobId, new_mutations)
+
+
 
 
 
@@ -186,11 +183,26 @@ for m in mut_list:
     if len(m) >= 3:
         mut = m.strip()
         mutations.append(mut)
-                  
+
 mut_positions = []
 for i in mutations:
     split = re.split(r'(\d+)', str(i))
     mut_positions.append(int(split[1]))
 
-    
+
+flag = False
+excluded_mutations = []
+for j, k in zip(mutations, mut_positions):
+    if k not in pruned_positions:
+        flag = True
+        excluded_mutations.append(j)
+
+
+if flag == True:
+    print('=======================================================================================================')
+    print('The given mutation(s) correspond to position(s) that is/are not aligned in the multiple sequence alignment:')
+    print(excluded_mutations)
+    print('=======================================================================================================')
+
+
 
