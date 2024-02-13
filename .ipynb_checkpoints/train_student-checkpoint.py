@@ -108,9 +108,7 @@ if True:
                 predictions = binary_prediction_option2(normalized_values)
                 
                 lz = list(zip(all_possible_mutations, all_possible_scores, normalized_values, 
-                        probabilities, predictions))
-                
-                dd = accession +'_'+ str(startpos) +'-'+ str(endpos)
+                        probabilities, predictions))                
 
                 
                 mm = []; ss = []; zz = []; pp = []; pr = []

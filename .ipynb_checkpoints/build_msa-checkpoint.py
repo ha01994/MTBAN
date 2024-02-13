@@ -46,7 +46,7 @@ if True:
         write_config_file(config_path, config)
 
         print('running evcouplings_runcfg...')
-        os.system("/home/ha01994/miniconda3/bin/evcouplings_runcfg " + config_path)
+        os.system("/home/ha01994/.local/bin/evcouplings_runcfg " + config_path)
         print('finished running evcouplings_runcfg...')
 
         data = pd.read_csv("_job%s/%s/align/%s_alignment_statistics.csv"%(jobId, jobId, jobId))

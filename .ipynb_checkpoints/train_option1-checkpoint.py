@@ -17,12 +17,12 @@ endpos = sys.argv[4]
 
 if True:
     
-    data_aa = np.load('/home/ha01994/mutationTCN/_job%s/data_aa.npy'%jobId) #(num_seqs, seq_len) 
+    data_aa = np.load('_job%s/data_aa.npy'%jobId) #(num_seqs, seq_len) 
     wt_seq = np.reshape(data_aa[0,:], (1,-1))
-    weights = np.load('/home/ha01994/mutationTCN/_job%s/weights.npy'%jobId)    
-    mutations = np.load('/home/ha01994/mutationTCN/_job%s/mutations.npy'%jobId)
-    all_possible_mut_data_aa = np.load('/home/ha01994/mutationTCN/_job%s/all_possible_mut_data_aa.npy'%jobId)
-    all_possible_mutations = np.load('/home/ha01994/mutationTCN/_job%s/all_possible_mutations.npy'%jobId)
+    weights = np.load('_job%s/weights.npy'%jobId)    
+    mutations = np.load('_job%s/mutations.npy'%jobId)
+    all_possible_mut_data_aa = np.load('_job%s/all_possible_mut_data_aa.npy'%jobId)
+    all_possible_mutations = np.load('_job%s/all_possible_mutations.npy'%jobId)
 
     aa_size = 24
     seq_len = int(np.shape(data_aa)[1])
@@ -96,12 +96,6 @@ if True:
                 lz = list(zip(all_possible_mutations, all_possible_scores, normalized_values, 
                         probabilities, predictions))
                 
-                dd = accession +'_'+ str(startpos) +'-'+ str(endpos)
-                os.system("mkdir /home/ha01994/databases/alignments_hp_100000it/%s"%dd)
-                with open('/home/ha01994/databases/alignments_hp_100000it/%s/predictions_%s.csv'%(dd, dd), 'w') as f:
-                    f.write("variant,score,z-score,probability_of_deleteriousness,prediction\n")
-                    for line in lz:
-                        f.write(str(line[0])+','+str(line[1])+','+str(line[2])+','+str(line[3])+','+str(line[4])+'\n')
                 
                 mm = []; ss = []; zz = []; pp = []; pr = []
                 for k in mutations:
@@ -114,13 +108,9 @@ if True:
                             pr.append(l[4])                
 
                             
-                with open('/home/ha01994/mutationTCN/_job%s/predictions_jobId%s.csv'%(jobId,jobId), 'a') as f:
+                with open('_job%s/predictions_jobId%s.csv'%(jobId,jobId), 'a') as f:
                     f.write('Uniprot accession: %s\n'%accession)
                     f.write("variant,score,z-score,probability_of_deleteriousness,predicted_label\n")
                     for i in range(len(mm)):
                         f.write(str(mm[i])+','+str(ss[i])+','+str(zz[i])+','+str(pp[i])+','+str(pr[i])+'\n')
                 
-                with open('/home/ha01994/mutationTCN/_job%s/finished.txt'%jobId, 'w') as f:
-                    f.write('Job is finished.')
-
-

@@ -5,10 +5,14 @@ import requests
 import random
 
 
+
+##############################################################
 jobId = '1'
 accession = 'P31749'
 option = 'option1'
 mut_file = "_job%s/%s_mutations.txt"%(jobId,jobId)
+##############################################################
+
 
 with open(mut_file) as f:
     mut_list = f.read().splitlines()
@@ -61,8 +65,11 @@ print('startpos', startpos)
 print('endpos', endpos)  
 
 
-os.system("python build_msa.py %s %s %s %s %s"%(jobId, mut_file, startpos, endpos, accession))
-os.system("python preprocess.py %s"%(jobId))
+# uncomment this if you need to build MSA (need to install EVcouplings)
+#os.system("python build_msa.py %s %s %s %s %s"%(jobId, mut_file, startpos, endpos, accession))
+
+# uncomment this if you need to preprocess
+#os.system("python preprocess.py %s"%(jobId))
 
     
 if option == "option1":
