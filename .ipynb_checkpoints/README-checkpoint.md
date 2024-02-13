@@ -38,22 +38,24 @@ However, this model takes a longer time to train.
 Kim HY, Jeon W, Kim D. An enhanced variant effect predictor based on a deep generative model and the Born-Again Networks. Scientific reports. 2021 Sep 27;11(1):1-7.
 
 
-### How to train and test models
-Run the below command to train and test the above models.
+## How to train and test models
+Run ```python full_workflow.py``` to train and test the above models.
 
-```python full_workflow.py```
-
-Sample data is provided in the ```_job1``` folder. 
+Sample data is provided in ```_job1/``` folder. 
 
 The ```full_workflow.py``` file will run the following python files:
+
 ```build_msa.py```
+
 ```preprocess.py```
+
 ```train_option1.py``` (for option 1)
+
 ```train_teacher.py``` and ```train_student.py``` (for option 2)
 
 
 
-### Description of the result file
+## Description of the result file
 
 In the result file (.csv), the query protein UniProt accession is shown in the first line.
 
