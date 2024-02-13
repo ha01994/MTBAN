@@ -34,7 +34,7 @@ The source code offers two options:
 This option predicts using the basic mutationTCN model, which is a deep generative model based on the Temporal Convolutional Network architecture.
 This model takes a relatively short training time, yet gives results with reasonably high accuracy.
 
-[Reference] Kim HY, Kim D. Prediction of mutation effects using a deep temporal convolutional network. Bioinformatics. 2020 Apr 1;36(7):2047-52.
+- [Reference] Kim HY, Kim D. Prediction of mutation effects using a deep temporal convolutional network. Bioinformatics. 2020 Apr 1;36(7):2047-52.
 
 **Option 2. MTBAN**
 
@@ -42,15 +42,17 @@ This model is the optimization of the mutationTCN model with Born-Again Neural N
 The accuracy of the model is generally higher than the mutationTCN model.
 However, this model takes a longer time to train.
 
-[Reference] Kim HY, Jeon W, Kim D. An enhanced variant effect predictor based on a deep generative model and the Born-Again Networks. Scientific reports. 2021 Sep 27;11(1):1-7.
+- [Reference] Kim HY, Jeon W, Kim D. An enhanced variant effect predictor based on a deep generative model and the Born-Again Networks. Scientific reports. 2021 Sep 27;11(1):1-7.
 
 &nbsp;
 
 
 ## Train model on sample dataset
-Run ```python full_workflow.py``` to train the above models using a sample dataset (jobId 1; Uniprot accession P40692) for which the MSA file (P40692_492-756.a2m) and mutation file (P40692_mutations.txt) are provided in this folder. 
+Run ```python full_workflow.py``` to train the above models using a sample dataset (jobId 1; Uniprot accession P40692). The MSA file (```P40692_492-756.a2m```) and mutation file (```P40692_mutations.txt```) are provided in this folder. 
 
-If you want to test your own protein, you will need to prepare your own MSA (which covers the amino acid positions of the mutations of interest) or build MSA using the ```src/build_msa.py``` file (for this you need to install EVcouplings).
+If you want to test your own protein, you will need to either
+1. prepare your own MSA (you need to make sure it covers the amino acid positions of the mutations of interest)
+2. or build MSA using the ```src/build_msa.py``` file (for this you need to install EVcouplings - link: https://github.com/debbiemarkslab/EVcouplings). 
 
 You can choose option 1 or option 2 when running ```python full_workflow.py```. 
 
@@ -77,7 +79,7 @@ The interpretation for each of them are as follows:
 
 1. A score is computed as the log of the probability that the generative model assigns to a mutant sequence, divided by the probability assigned to the wild-type sequence (log(p_mutant/p_wt)). The smaller the score, the more likely the variant has damaging effect.
 
-2. z-scores are calculated by the z-score normalization of the distribution of scores for all possible missense variants against the target protein sequence.
+2. Z-scores are calculated by the z-score normalization of the distribution of scores for all possible missense variants against the target protein sequence.
 
 3. The probability of deleteriousness refers to the probability of the variant being deleterious (ranges from 0 to 1). This is calculated by obtaining the z-scores for variants in the Humsavar database and computing the percentage of deleterious variants in different z-score ranges.
 
