@@ -35,6 +35,7 @@ This model is the optimization of the mutationTCN model with Born-Again Neural N
 The accuracy of the model is generally higher than the mutationTCN model.
 However, this model takes a longer time to train.
 
+Kim HY, Jeon W, Kim D. An enhanced variant effect predictor based on a deep generative model and the Born-Again Networks. Scientific reports. 2021 Sep 27;11(1):1-7.
 
 
 ### 
