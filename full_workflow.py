@@ -66,20 +66,20 @@ print('endpos', endpos)
 
 
 # uncomment this if you need to build MSA (need to install EVcouplings)
-#os.system("python script/build_msa.py %s %s %s %s %s"%(jobId, mut_file, startpos, endpos, accession))
+#os.system("python src/build_msa.py %s %s %s %s %s"%(jobId, mut_file, startpos, endpos, accession))
 
 # uncomment this if you need to preprocess
-#os.system("python script/preprocess.py %s"%(jobId))
+#os.system("python src/preprocess.py %s"%(jobId))
 
     
 if option == "option1":
     print("starting train_option1.py")
-    os.system("python script/train_option1.py %s %s %s %s"%(jobId, accession, startpos, endpos))
+    os.system("python src/train_option1.py %s %s %s %s"%(jobId, accession, startpos, endpos))
 
 elif option == "option2":
     print("starting train_teacher.py")
-    os.system("CUDA_VISIBLE_DEVICES=0 python script/train_teacher.py %s %s %s %s"%(jobId, accession, startpos, endpos))
+    os.system("CUDA_VISIBLE_DEVICES=0 python src/train_teacher.py %s %s %s %s"%(jobId, accession, startpos, endpos))
 
     print("starting train_student.py")
-    os.system("CUDA_VISIBLE_DEVICES=0 python script/train_student.py %s %s %s %s"%(jobId, accession, startpos, endpos))
+    os.system("CUDA_VISIBLE_DEVICES=0 python src/train_student.py %s %s %s %s"%(jobId, accession, startpos, endpos))
 

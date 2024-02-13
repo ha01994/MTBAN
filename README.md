@@ -43,15 +43,15 @@ Run ```python full_workflow.py``` to train and test the above models.
 
 Sample data is provided in ```_job1/``` folder. 
 
-The ```full_workflow.py``` file will run the following python files:
+The ```full_workflow.py``` file will run the following python files in the ```src``` folder:
 
-```build_msa.py```
+- ```build_msa.py```
 
-```preprocess.py```
+- ```preprocess.py```
 
-```train_option1.py``` (for option 1)
+- ```train_option1.py``` (for option 1)
 
-```train_teacher.py``` and ```train_student.py``` (for option 2)
+- ```train_teacher.py``` and ```train_student.py``` (for option 2)
 
 
 
