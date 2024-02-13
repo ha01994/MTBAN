@@ -50,10 +50,6 @@ However, this model takes a longer time to train.
 ## Train model on sample dataset
 Run ```python full_workflow.py``` to train the above models using a sample dataset (jobId 1; Uniprot accession P40692). The MSA file (```P40692_492-756.a2m```) and mutation file (```P40692_mutations.txt```) are provided in this folder. 
 
-If you want to test your own protein, you will need to either
-1. prepare your own MSA (you need to make sure it covers the amino acid positions of the mutations of interest)
-2. or build MSA using the ```src/build_msa.py``` file (for this you need to install EVcouplings - link: https://github.com/debbiemarkslab/EVcouplings). 
-
 You can choose option 1 or option 2 when running ```python full_workflow.py```. 
 
 The ```full_workflow.py``` file will sequentially run the following python files located in the ```src``` folder:
@@ -63,6 +59,10 @@ The ```full_workflow.py``` file will sequentially run the following python files
 - ```preprocess.py```
 
 - ```train_option1.py``` (for option 1); ```train_teacher.py``` and ```train_student.py``` (for option 2)
+
+If you want to test your own protein, you will need to either
+1. prepare your own MSA (you need to make sure it covers the amino acid positions of the mutations of interest)
+2. or build MSA using the ```src/build_msa.py``` file (for this you need to install EVcouplings - link: https://github.com/debbiemarkslab/EVcouplings). 
 
 &nbsp;
 
